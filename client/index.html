@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Collaborative Canvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="toolbar">
+    <div class="tools">
+      <button type="button" id="btn-brush" class="tool active">Brush</button>
+      <button type="button" id="btn-eraser" class="tool">Eraser</button>
+    </div>
+    <div class="colors">
+      <button type="button" class="color" data-color="#000000" style="background:#000"></button>
+      <button type="button" class="color" data-color="#e74c3c" style="background:#e74c3c"></button>
+      <button type="button" class="color" data-color="#3498db" style="background:#3498db"></button>
+      <button type="button" class="color" data-color="#2ecc71" style="background:#2ecc71"></button>
+      <button type="button" class="color" data-color="#f39c12" style="background:#f39c12"></button>
+      <button type="button" class="color" data-color="#9b59b6" style="background:#9b59b6"></button>
+    </div>
+    <div class="width-wrap">
+      <label>Width</label>
+      <input type="range" id="stroke-width" min="1" max="30" value="5">
+      <span id="width-val">5</span>
+    </div>
+    <div class="actions">
+      <button type="button" id="btn-undo">Undo</button>
+      <button type="button" id="btn-redo">Redo</button>
+    </div>
+    <div class="users-wrap">
+      <span class="users-label">Online</span>
+      <ul id="user-list"></ul>
+    </div>
+  </div>
+  <div class="canvas-wrap">
+    <canvas id="canvas"></canvas>
+    <canvas id="cursor-layer"></canvas>
+  </div>
+  <script>
+    if (location.hostname === 'drawing-canvas-io.vercel.app') {
+      window.__WS_SERVER_URL__ = 'wss://drawing-canvas-wile.onrender.com';
+    }
+  </script>
+  <script src="canvas.js"></script>
+  <script src="websocket.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

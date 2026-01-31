@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, sans-serif;
+  background: #1a1a1a;
+  color: #eee;
+  touch-action: none;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #2d2d2d;
+  flex-shrink: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.toolbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    gap: 0.4rem;
+    padding: 0.4rem;
+  }
+}
+
+.tools {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tool {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #444;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+  touch-action: manipulation;
+  min-width: 60px;
+}
+
+@media (max-width: 768px) {
+  .tool {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+    min-width: 55px;
+  }
+}
+
+.tool:hover {
+  background: #444;
+}
+
+.tool.active {
+  background: #555;
+  border-color: #666;
+}
+
+.colors {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.color {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  touch-action: manipulation;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .color {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.color:hover {
+  border-color: #888;
+}
+
+.color.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.width-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.width-wrap label {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .width-wrap label {
+    display: none;
+  }
+}
+
+#stroke-width {
+  width: 80px;
+  touch-action: none;
+}
+
+@media (max-width: 768px) {
+  #stroke-width {
+    width: 60px;
+  }
+}
+
+#width-val {
+  min-width: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.actions button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #444;
+  background: #333;
+  color: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  .actions button {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+.actions button:hover {
+  background: #444;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.users-wrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .users-wrap {
+    display: none;
+  }
+}
+
+.users-label {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+#user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#user-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+#user-list .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.canvas-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  cursor: crosshair;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+#cursor-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
